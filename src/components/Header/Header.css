@@ -152,3 +152,25 @@
   background-color: var(--color-primary-container);
   color: var(--color-on-surface);
 }
+
+@media (max-width: 480px) {
+  .cta-button {
+    padding: var(--space-xs) var(--space-sm);
+    font-size: 0.7rem;
+    white-space: nowrap;
+  }
+  .brand-name {
+    font-size: 1rem;
+    white-space: nowrap;
+  }
+  .lang-switcher {
+    padding: 2px;
+  }
+  .lang-btn {
+    padding: 2px 4px;
+    font-size: 0.7rem;
+  }
+  .header-container {
+    gap: var(--space-xs);
+  }
+}

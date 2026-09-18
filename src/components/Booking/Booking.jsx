@@ -1,11 +1,30 @@
 import React from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
-import { useBooking } from '../../contexts/BookingContext';
+import { useBooking, serviceData, barberData } from '../../contexts/BookingContext';
 import './Booking.css';
 
 const Booking = () => {
-  const { dir, t } = useLanguage();
+  const { dir, t, lang } = useLanguage();
   const { booking, setDate, setTime, togglePreference, confirmReservation } = useBooking();
+
+  const getServiceData = () => serviceData[booking.serviceId]?.[lang] || serviceData['noir-full'][lang];
+  const getBarberName = () => barberData[booking.barberId]?.[lang] || barberData['elena'][lang];
+
+  const currentService = getServiceData();
+  const currentBarber = getBarberName();
+  
+  const toArabicNum = (num) => {
+    return num.toString().replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩'[d]);
+  };
+  
+  const displayDate = (num) => lang === 'ar' ? toArabicNum(num) : num;
+
+  const currentDateTime = () => {
+    const timeStr = t.bookingTimes?.[booking.selectedTimeIndex] || '01:15 PM';
+    const monthStr = lang === 'ar' ? 'أكتوبر' : 'Oct';
+    const dayStr = displayDate(booking.selectedDate);
+    return lang === 'ar' ? `${dayStr} ${monthStr} • ${timeStr}` : `Thu, ${monthStr} ${dayStr} • ${timeStr}`;
+  };
 
   return (
     <section id="interactive-booking" className="booking-section" dir={dir}>
@@ -24,8 +43,8 @@ const Booking = () => {
                 <span className="text-headline-sm text-on-surface">{t.bookingMonth}</span>
               </div>
               <div className="calendar-nav">
-                <button className="nav-btn material-symbols-outlined">chevron_left</button>
-                <button className="nav-btn material-symbols-outlined">chevron_right</button>
+                <button className="nav-btn material-symbols-outlined">{dir === 'rtl' ? 'chevron_right' : 'chevron_left'}</button>
+                <button className="nav-btn material-symbols-outlined">{dir === 'rtl' ? 'chevron_left' : 'chevron_right'}</button>
               </div>
             </div>
 
@@ -33,16 +52,16 @@ const Booking = () => {
               {t.bookingDays?.map((day, i) => (
                 <div key={i} className="day-header text-label-caps text-outline">{day}</div>
               ))}
-              <div className="date-cell disabled text-surface-container-highest">20</div>
+              <div className="date-cell disabled text-surface-container-highest">{displayDate(20)}</div>
               {[21, 22, 23, 24, 25, 26].map(date => {
                 const isActive = booking.selectedDate === date;
                 return (
                   <button 
                     key={date} 
                     className={`date-cell clickable ${isActive ? 'active' : ''}`}
-                    onClick={() => setDate(date.toString(), date)}
+                    onClick={() => setDate(date)}
                   >
-                    {date}
+                    {displayDate(date)}
                   </button>
                 );
               })}
@@ -52,12 +71,12 @@ const Booking = () => {
               <h3 className="times-label text-label-caps text-primary uppercase tracking-widest">{t.bookingAvailableWindows}</h3>
               <div className="times-grid">
                 {t.bookingTimes?.map((time, i) => {
-                  const isActive = booking.selectedTime === time;
+                  const isActive = booking.selectedTimeIndex === i;
                   return (
                     <button 
                       key={i}
                       className={`time-slot text-label-sm ${isActive ? 'active' : ''}`}
-                      onClick={() => setTime(time, i)}
+                      onClick={() => setTime(i)}
                     >
                       {time}
                     </button>
@@ -71,21 +90,21 @@ const Booking = () => {
             <div className="summary-section">
               <div className="summary-tag text-label-caps text-primary">{t.bookingSummaryTag}</div>
               <div className="summary-service">
-                <span className="text-headline-sm text-on-surface">{booking.service || 'Service'}</span>
-                <span className="text-headline-sm text-primary">{booking.price || '$0'}</span>
+                <span className="text-headline-sm text-on-surface">{currentService.name}</span>
+                <span className="text-headline-sm text-primary">{currentService.price}</span>
               </div>
               <div className="summary-details">
                 <div className="detail-row text-body-md">
                   <span className="text-outline">{t.bookingAssignedArtisan}</span>
-                  <span className="text-on-surface">{booking.barber || '-'}</span>
+                  <span className="text-on-surface">{currentBarber}</span>
                 </div>
                 <div className="detail-row text-body-md">
                   <span className="text-outline">{t.bookingScheduledSlot}</span>
-                  <span className="text-on-surface">{booking.dateTime || '-'}</span>
+                  <span className="text-on-surface">{currentDateTime()}</span>
                 </div>
                 <div className="detail-row text-body-md">
                   <span className="text-outline">{t.bookingTotalDuration}</span>
-                  <span className="text-on-surface">{booking.duration || '-'}</span>
+                  <span className="text-on-surface">{currentService.duration}</span>
                 </div>
               </div>
             </div>

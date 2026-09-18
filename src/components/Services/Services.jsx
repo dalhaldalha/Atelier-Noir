@@ -7,11 +7,14 @@ export default function Services() {
   const { lang, dir, t } = useLanguage();
   const { selectService } = useBooking();
 
-  const handleBook = (name, price, duration) => {
-    selectService(name, price, duration);
+  const handleBook = (id) => {
+    selectService(id);
     const element = document.getElementById('interactive-booking');
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const headerOffset = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - headerOffset;
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
     }
   };
 
@@ -55,7 +58,7 @@ export default function Services() {
             <footer className="service-card-footer">
               <span className="text-label-sm text-outline">{t.service1Footer}</span>
               <button 
-                onClick={() => handleBook(t.service1Title, 85, t.service1Duration)}
+                onClick={() => handleBook('signature-cut')}
                 className="text-label-caps text-on-surface uppercase tracking-widest service-book-btn"
               >
                 {t.serviceBookBtn}
@@ -79,7 +82,7 @@ export default function Services() {
             <footer className="service-card-footer">
               <span className="text-label-sm text-outline">{t.service2Footer}</span>
               <button 
-                onClick={() => handleBook(t.service2Title, 75, t.service2Duration)}
+                onClick={() => handleBook('razor-shave')}
                 className="text-label-caps text-on-surface uppercase tracking-widest service-book-btn"
               >
                 {t.serviceBookBtn}
@@ -103,7 +106,7 @@ export default function Services() {
             <footer className="service-card-footer">
               <span className="text-label-sm text-outline">{t.service3Footer}</span>
               <button 
-                onClick={() => handleBook(t.service3Title, 65, t.service3Duration)}
+                onClick={() => handleBook('beard-sculpt')}
                 className="text-label-caps text-on-surface uppercase tracking-widest service-book-btn"
               >
                 {t.serviceBookBtn}
@@ -128,7 +131,7 @@ export default function Services() {
             <footer className="service-card-footer">
               <span className="text-label-sm text-primary">{t.service4Footer}</span>
               <button 
-                onClick={() => handleBook(t.service4Title, 150, t.service4Duration)}
+                onClick={() => handleBook('noir-full')}
                 className="text-label-caps text-on-surface uppercase tracking-widest service-book-btn"
               >
                 {t.serviceBookBtn}

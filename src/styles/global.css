@@ -247,3 +247,6 @@ input[type="checkbox"] {
 .italic { font-style: italic; }
 .tracking-widest { letter-spacing: 0.18em; }
 .tracking-wider { letter-spacing: 0.08em; }
+
+.transition-opacity { transition: opacity 0.3s ease; }
+.hover-link:hover, .hover\:opacity-80:hover { opacity: 0.8; }

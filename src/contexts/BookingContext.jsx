@@ -1,15 +1,25 @@
-import { createContext, useContext, useState, useCallback } from 'react';
+import React, { createContext, useContext, useState, useCallback } from 'react';
 
 const BookingContext = createContext();
 
+export const serviceData = {
+  'signature-cut': { en: { name: 'The Signature Haircut', duration: '45 Minutes', price: 'SAR 85' }, ar: { name: 'قصة الشعر المميزة', duration: '٤٥ دقيقة', price: '٨٥ ر.س' } },
+  'razor-shave': { en: { name: 'Hot Towel Razor Shave', duration: '40 Minutes', price: 'SAR 75' }, ar: { name: 'حلاقة بالموس والمنشفة الساخنة', duration: '٤٠ دقيقة', price: '٧٥ ر.س' } },
+  'beard-sculpt': { en: { name: 'Beard Architecture', duration: '35 Minutes', price: 'SAR 65' }, ar: { name: 'هندسة ونحت اللحية', duration: '٣٥ دقيقة', price: '٦٥ ر.س' } },
+  'noir-full': { en: { name: 'The Noir Ritual', duration: '80 Minutes', price: 'SAR 150' }, ar: { name: 'طقس النوار الكامل', duration: '٨٠ دقيقة', price: '١٥٠ ر.س' } },
+};
+
+export const barberData = {
+  'julian': { en: 'Julian Vance', ar: 'جوليان فانس' },
+  'elena': { en: 'Elena Rostova', ar: 'إيلينا روستوفا' },
+  'any': { en: 'First Available Master', ar: 'أي حرفي متاح' },
+};
+
 const initialBooking = {
-  service: 'The Noir Ritual',
-  price: 'SAR 150',
-  duration: '80 Minutes',
-  barber: 'Elena Rostova',
-  dateTime: 'Thu, Oct 24 • 01:15 PM',
+  serviceId: 'noir-full',
+  barberId: 'elena',
   selectedDate: 24,
-  selectedTime: 2, // index into times array (01:15 PM)
+  selectedTimeIndex: 2, // index into times array
   preferences: {
     silent: true,
     malt: true,
@@ -21,39 +31,29 @@ const initialBooking = {
 export function BookingProvider({ children }) {
   const [booking, setBooking] = useState(initialBooking);
 
-  const selectService = useCallback((name, price, duration) => {
+  const selectService = useCallback((id) => {
     setBooking((prev) => ({
       ...prev,
-      service: name,
-      price: `SAR ${price}`,
-      duration: duration,
+      serviceId: id,
     }));
   }, []);
 
-  const selectBarber = useCallback((barberName) => {
-    setBooking((prev) => ({ ...prev, barber: barberName }));
+  const selectBarber = useCallback((id) => {
+    setBooking((prev) => ({ ...prev, barberId: id }));
   }, []);
 
-  const setDate = useCallback((dateStr, dayNum) => {
-    setBooking((prev) => {
-      const timePart = prev.dateTime.split('•')[1] || ' 01:15 PM';
-      return {
-        ...prev,
-        dateTime: `${dateStr} •${timePart}`,
-        selectedDate: dayNum,
-      };
-    });
+  const setDate = useCallback((dayNum) => {
+    setBooking((prev) => ({
+      ...prev,
+      selectedDate: dayNum,
+    }));
   }, []);
 
-  const setTime = useCallback((timeStr, timeIndex) => {
-    setBooking((prev) => {
-      const datePart = prev.dateTime.split('•')[0] || 'Thu, Oct 24 ';
-      return {
-        ...prev,
-        dateTime: `${datePart}• ${timeStr}`,
-        selectedTime: timeIndex,
-      };
-    });
+  const setTime = useCallback((timeIndex) => {
+    setBooking((prev) => ({
+      ...prev,
+      selectedTimeIndex: timeIndex,
+    }));
   }, []);
 
   const togglePreference = useCallback((key) => {

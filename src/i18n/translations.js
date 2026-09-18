@@ -208,25 +208,25 @@ export const translations = {
     // Service 1
     service1Title: 'قصة الشعر المميزة',
     service1Duration: '٤٥ دقيقة',
-    service1Price: '$٨٥',
+    service1Price: '٨٥ ر.س',
     service1Desc: 'استشارة مخصصة، قص متقن بالمقص الياباني، غسيل منشط لفروة الرأس بالأوكالبتوس العضوي، تصفيف ملائم، وتشذيب نظيف للرقبة بموس الحلاقة الدافئ.',
     service1Footer: 'تشمل ضيافة المشروبات الخاصة والقهوة الباردة',
     // Service 2
     service2Title: 'حلاقة بالموس الساخن والبخار',
     service2Duration: '٤٠ دقيقة',
-    service2Price: '$٧٥',
+    service2Price: '٧٥ ر.س',
     service2Desc: 'ضخ الزيوت المعالجة قبل الحلاقة، علاج المنشفة المشبعة بالبخار على ثلاث مراحل متتالية، حلاقة بشفرة فيذر اليابانية، وكمادات حجر الشب الباردة.',
     service2Footer: 'بلسم الأعشاب المهدئ وخاتمة منعشة',
     // Service 3
     service3Title: 'هندسة ونحت اللحية',
     service3Duration: '٣٥ دقيقة',
-    service3Price: '$٦٥',
+    service3Price: '٦٥ ر.س',
     service3Desc: 'تحديد دقيق للإطار الخارجي، رسم حدود الوجنتين بالرغوة الساخنة، تدرج حجري متناسق، زيوت نباتية مرطبة، وتمشيط بفرشاة شعر الخنزير الطبيعية.',
     service3Footer: 'تحديد عالي الدقة لموس الخدين',
     // Service 4
     service4Title: 'طقس النوار الكامل',
     service4Duration: '٨٠ دقيقة',
-    service4Price: '$١٥٠',
+    service4Price: '١٥٠ ر.س',
     service4Desc: 'التجربة الاحتفالية الكاملة: قصة شعر مميزة، حلاقة بالموس الساخن، قناع طيني منقٍ للبشرة، تدليك لإراحة عضلات اليد والكتف، وضيافة مشروبات منتقاة.',
     service4Footer: 'تشمل إكسير تقوية فروة الرأس الفاخر',
     service4Badge: 'الشعيرة الفائقة',
@@ -339,10 +339,10 @@ export const translations = {
 
     // Quick booking selects
     quickServiceOptions: [
-      { value: 'noir-full', label: 'طقس النوار الكامل — ٨٠ د ($١٥٠)' },
-      { value: 'signature-cut', label: 'قصة الشعر المميزة — ٤٥ د ($٨٥)' },
-      { value: 'razor-shave', label: 'حلاقة بالموس الساخن والبخار — ٤٠ د ($٧٥)' },
-      { value: 'beard-sculpt', label: 'هندسة ونحت اللحية — ٣٥ د ($٦٥)' },
+      { value: 'noir-full', label: 'طقس النوار الكامل — ٨٠ د (١٥٠ ر.س)' },
+      { value: 'signature-cut', label: 'قصة الشعر المميزة — ٤٥ د (٨٥ ر.س)' },
+      { value: 'razor-shave', label: 'حلاقة بالموس الساخن والبخار — ٤٠ د (٧٥ ر.س)' },
+      { value: 'beard-sculpt', label: 'هندسة ونحت اللحية — ٣٥ د (٦٥ ر.س)' },
     ],
     quickBarberOptions: [
       { value: 'julian', label: 'جوليان فانس (رئيس الحِرفيين)' },

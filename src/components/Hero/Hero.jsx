@@ -53,7 +53,11 @@ const Hero = () => {
         <div className="quick-booking-bar">
           <div className="qb-section">
             <label className="qb-label text-label-caps">{t.heroSelectService}</label>
-            <select className="qb-select text-title-md" defaultValue="signature-cut">
+            <select 
+              className="qb-select text-title-md" 
+              value={booking?.serviceId || 'signature-cut'}
+              onChange={(e) => selectService(e.target.value)}
+            >
               {t.quickServiceOptions.map((opt) => (
                 <option key={opt.value} value={opt.value}>{opt.label}</option>
               ))}
@@ -62,7 +66,11 @@ const Hero = () => {
 
           <div className="qb-section">
             <label className="qb-label text-label-caps">{t.heroSelectBarber}</label>
-            <select className="qb-select text-title-md" defaultValue="any">
+            <select 
+              className="qb-select text-title-md" 
+              value={booking?.barberId || 'any'}
+              onChange={(e) => selectBarber(e.target.value)}
+            >
               {t.quickBarberOptions.map((opt) => (
                 <option key={opt.value} value={opt.value}>{opt.label}</option>
               ))}

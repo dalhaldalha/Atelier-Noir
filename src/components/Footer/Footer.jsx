@@ -15,8 +15,8 @@ const Footer = () => {
             
             <div className="footer-contact">
               <span className="text-label-caps footer-reservations-tag">{t.footerReservationsTag}</span>
-              <p className="text-body-md footer-email">{t.footerEmail}</p>
-              <p className="text-body-md footer-phone">{t.footerPhone}</p>
+              <a href="mailto:concierge@ateliernoir.com" style={{ display: 'block', textDecoration: 'none' }} className="text-body-md footer-email hover-link">{t.footerEmail || 'concierge@ateliernoir.com'}</a>
+              <a href="tel:+966501234567" style={{ display: 'block', textDecoration: 'none' }} className="text-body-md footer-phone hover-link">{t.footerPhone}</a>
             </div>
           </div>
 

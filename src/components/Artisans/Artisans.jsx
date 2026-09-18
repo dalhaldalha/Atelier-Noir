@@ -62,7 +62,7 @@ export default function Artisans() {
               <footer className="artisan-footer">
                 <span className="text-label-sm text-outline">{t.julianDays}</span>
                 <button 
-                  onClick={() => handleBook(t.julianName)}
+                  onClick={() => handleBook('julian')}
                   className="artisan-book-btn text-label-caps uppercase tracking-widest text-on-surface hover:primary"
                 >
                   {t.julianBook || 'Book'}
@@ -98,7 +98,7 @@ export default function Artisans() {
               <footer className="artisan-footer">
                 <span className="text-label-sm text-outline">{t.elenaDays}</span>
                 <button 
-                  onClick={() => handleBook(t.elenaName)}
+                  onClick={() => handleBook('elena')}
                   className="artisan-book-btn text-label-caps uppercase tracking-widest text-on-surface hover:primary"
                 >
                   {t.elenaBook || 'Book'}
