@@ -1,0 +1,104 @@
+.space-section {
+  width: 100%;
+  background-color: var(--color-surface-container-lowest);
+  padding: var(--space-3xl) 0;
+  border-top: 1px solid color-mix(in srgb, var(--color-outline-variant) 20%, transparent);
+}
+
+.space-container {
+  max-width: var(--max-width, 1440px);
+  margin: 0 auto;
+  padding: 0 var(--margin-mobile);
+}
+
+@media (min-width: 768px) {
+  .space-container {
+    padding: 0 var(--margin-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .space-container {
+    padding: 0 var(--margin);
+  }
+}
+
+.space-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gutter);
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .space-grid {
+    grid-template-columns: repeat(12, 1fr);
+  }
+  
+  .space-left {
+    grid-column: span 7;
+  }
+  
+  .space-right {
+    grid-column: span 5;
+  }
+}
+
+.space-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-surface-container);
+  width: 100%;
+}
+
+.space-image {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  filter: contrast(110%) grayscale(100%);
+}
+
+.space-badge {
+  position: absolute;
+  bottom: 0;
+  background-color: color-mix(in srgb, var(--color-surface) 90%, transparent);
+  padding: var(--space-xs) var(--space-md);
+  border: 1px solid color-mix(in srgb, var(--color-outline-variant) 30%, transparent);
+}
+
+[dir="ltr"] .space-badge {
+  right: 0;
+  border-right: none;
+  border-bottom: none;
+}
+
+[dir="rtl"] .space-badge {
+  left: 0;
+  border-left: none;
+  border-bottom: none;
+}
+
+.space-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-lg);
+}
+
+.space-tag {
+  letter-spacing: 0.1em;
+}
+
+.space-features {
+  margin-top: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.space-feature {
+  display: flex;
+  gap: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid color-mix(in srgb, var(--color-outline-variant) 20%, transparent);
+}

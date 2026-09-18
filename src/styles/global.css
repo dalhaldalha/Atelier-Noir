@@ -1,0 +1,249 @@
+/* ==========================================================================
+   ATELIER NOIR — Global Styles
+   ========================================================================== */
+
+@import './variables.css';
+
+/* ── Reset & Base ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overscroll-behavior: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-body-md-size);
+  line-height: var(--text-body-md-line);
+  letter-spacing: var(--text-body-md-tracking);
+  font-weight: var(--text-body-md-weight);
+  color: var(--color-on-surface);
+  background-color: var(--color-background);
+}
+
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  color: inherit;
+}
+
+select {
+  font-family: inherit;
+}
+
+input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--color-primary);
+  border-radius: 0;
+  background: var(--color-surface-container-highest);
+  border: 1px solid var(--color-outline-variant);
+  cursor: pointer;
+}
+
+/* ── RTL Font Overrides ── */
+:root[dir="rtl"] body,
+:root[dir="rtl"] button,
+:root[dir="rtl"] input,
+:root[dir="rtl"] select,
+:root[dir="rtl"] textarea {
+  font-family: 'Cairo', sans-serif;
+}
+
+:root[dir="rtl"] .text-display-hero,
+:root[dir="rtl"] .text-headline-lg,
+:root[dir="rtl"] .text-headline-lg-mobile,
+:root[dir="rtl"] .text-headline-md,
+:root[dir="rtl"] .text-headline-sm,
+:root[dir="rtl"] blockquote {
+  font-family: 'Amiri', serif !important;
+  letter-spacing: normal !important;
+}
+
+/* ── Typography Utility Classes ── */
+.text-display-hero {
+  font-family: var(--font-display);
+  font-size: var(--text-display-hero-size);
+  line-height: var(--text-display-hero-line);
+  letter-spacing: var(--text-display-hero-tracking);
+  font-weight: var(--text-display-hero-weight);
+}
+
+.text-headline-lg {
+  font-family: var(--font-display);
+  font-size: var(--text-headline-lg-size);
+  line-height: var(--text-headline-lg-line);
+  letter-spacing: var(--text-headline-lg-tracking);
+  font-weight: var(--text-headline-lg-weight);
+}
+
+.text-headline-lg-mobile {
+  font-family: var(--font-display);
+  font-size: var(--text-headline-lg-mobile-size);
+  line-height: var(--text-headline-lg-mobile-line);
+  letter-spacing: var(--text-headline-lg-mobile-tracking);
+  font-weight: var(--text-headline-lg-mobile-weight);
+}
+
+.text-headline-md {
+  font-family: var(--font-display);
+  font-size: var(--text-headline-md-size);
+  line-height: var(--text-headline-md-line);
+  letter-spacing: var(--text-headline-md-tracking);
+  font-weight: var(--text-headline-md-weight);
+}
+
+.text-headline-sm {
+  font-family: var(--font-display);
+  font-size: var(--text-headline-sm-size);
+  line-height: var(--text-headline-sm-line);
+  letter-spacing: var(--text-headline-sm-tracking);
+  font-weight: var(--text-headline-sm-weight);
+}
+
+.text-title-md {
+  font-family: var(--font-body);
+  font-size: var(--text-title-md-size);
+  line-height: var(--text-title-md-line);
+  letter-spacing: var(--text-title-md-tracking);
+  font-weight: var(--text-title-md-weight);
+}
+
+.text-body-lg {
+  font-family: var(--font-body);
+  font-size: var(--text-body-lg-size);
+  line-height: var(--text-body-lg-line);
+  letter-spacing: var(--text-body-lg-tracking);
+  font-weight: var(--text-body-lg-weight);
+}
+
+.text-body-md {
+  font-family: var(--font-body);
+  font-size: var(--text-body-md-size);
+  line-height: var(--text-body-md-line);
+  letter-spacing: var(--text-body-md-tracking);
+  font-weight: var(--text-body-md-weight);
+}
+
+.text-label-caps {
+  font-family: var(--font-body);
+  font-size: var(--text-label-caps-size);
+  line-height: var(--text-label-caps-line);
+  letter-spacing: var(--text-label-caps-tracking);
+  font-weight: var(--text-label-caps-weight);
+  text-transform: uppercase;
+}
+
+.text-label-sm {
+  font-family: var(--font-body);
+  font-size: var(--text-label-sm-size);
+  line-height: var(--text-label-sm-line);
+  letter-spacing: var(--text-label-sm-tracking);
+  font-weight: var(--text-label-sm-weight);
+}
+
+/* ── Container ── */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--margin-mobile);
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-inline: var(--margin-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-inline: var(--margin);
+  }
+}
+
+/* ── Responsive Typography ── */
+@media (min-width: 768px) {
+  .text-display-hero-responsive {
+    font-size: var(--text-display-hero-size);
+    line-height: var(--text-display-hero-line);
+    letter-spacing: var(--text-display-hero-tracking);
+  }
+
+  .text-headline-lg-responsive {
+    font-size: var(--text-headline-lg-size);
+    line-height: var(--text-headline-lg-line);
+    letter-spacing: var(--text-headline-lg-tracking);
+  }
+}
+
+/* ── Material Symbols ── */
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+  vertical-align: middle;
+}
+
+/* ── Transition Utilities ── */
+.transition-colors {
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.transition-all {
+  transition: all 0.3s ease;
+}
+
+.transition-transform {
+  transition: transform 0.7s ease;
+}
+
+/* ── Color Utilities ── */
+.text-primary { color: var(--color-primary); }
+.text-on-primary { color: var(--color-on-primary); }
+.text-on-surface { color: var(--color-on-surface); }
+.text-on-surface-variant { color: var(--color-on-surface-variant); }
+.text-outline { color: var(--color-outline); }
+.text-outline-variant { color: var(--color-outline-variant); }
+.text-surface-container-highest { color: var(--color-surface-container-highest); }
+.text-center { text-align: center; }
+.uppercase { text-transform: uppercase; }
+.italic { font-style: italic; }
+.tracking-widest { letter-spacing: 0.18em; }
+.tracking-wider { letter-spacing: 0.08em; }
