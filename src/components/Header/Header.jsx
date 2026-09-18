@@ -72,8 +72,18 @@ const Header = () => {
             style={{ cursor: 'pointer' }}
           />
           <div className="brand-text-container">
-            <span className="brand-name text-headline-sm">{t.brandName || 'ATELIER NOIR'}</span>
-            {lang === 'ar' && <span className="sub-brand">ATELIER NOIR</span>}
+            <span 
+              className="brand-name text-headline-sm"
+              style={{ fontFamily: "'Amiri', serif", letterSpacing: "normal" }}
+            >
+              أتيلييه نوار
+            </span>
+            <span 
+              className="sub-brand"
+              style={{ fontFamily: "'Cairo', sans-serif", fontSize: "0.65rem", letterSpacing: "0.05em" }}
+            >
+              ATELIER NOIR
+            </span>
           </div>
         </div>
 
@@ -122,7 +132,8 @@ const Header = () => {
               className={`lang-btn ${lang === 'ar' ? 'active' : ''}`}
               onClick={() => toggleLang('ar')}
             >
-              العربية
+              <span className="lang-text-desktop">العربية</span>
+              <span className="lang-text-mobile">AR</span>
             </button>
           </div>
           <button className="cta-button text-label-caps" onClick={handleBookClick}>

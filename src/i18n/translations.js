@@ -286,7 +286,7 @@ export const translations = {
     bookingReserveBtn: 'تأكيد الحجز دون دفع مسبق',
     bookingConfirmedMsg: 'تم تأكيد طلبك — أهلاً بك في نوار',
     bookingCancelPolicy: 'تطبق سياسة الإلغاء اللبقة خلال ٢٤ ساعة مسبقاً.',
-    bookingDays: ['الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت', 'الأحد'],
+    bookingDays: ['ح', 'ن', 'ث', 'ر', 'خ', 'ج', 'س'],
     bookingTimes: ['١٠:٠٠ صباحاً', '١١:٣٠ صباحاً', '٠١:١٥ مساءً', '٠٣:٠٠ مساءً', '٠٤:٤٥ مساءً', '٠٦:١٥ مساءً'],
 
     // Location
@@ -304,7 +304,7 @@ export const translations = {
     hoursSunMon: 'الأحد – الإثنين',
     hoursSunMonTime: 'حجوزات خاصة حصراً',
     conciergeTag: 'الكونسيرج المباشر',
-    conciergePhone: '+966 50 123 4567',
+    conciergePhone: '+٩٦٦ ٥٠ ١٢٣ ٤٥٦٧',
     conciergeEmail: 'concierge@ateliernoir.com',
     protocolTag: 'ميثاق الأتيليه',
     protocolArrival: 'الوصول:',
@@ -313,13 +313,13 @@ export const translations = {
     protocolCancelText: 'نلتمس إشعارنا قبل ٤٨ ساعة في حال الرغبة في تعديل موعد الحرفي المخصص.',
     protocolAcoustic: 'السكينة الصوتية:',
     protocolAcousticText: 'يُمنع إجراء المكالمات الهاتفية الصوتية داخل أروقة قاعة التصفيف.',
-    requestPrivateHire: 'Request Private Hire',
+    requestPrivateHire: 'طلب حجز خاص',
 
     // Footer
     footerBrandDesc: 'ملاذ حلاقة فاخر لا يقبل المساومة، مكرس للهيبة الهادئة، والطقوس المصممة بعناية، والدلال الحسي المتكامل.',
     footerReservationsTag: 'الحجوزات والاستفسارات الخاصة',
     footerEmail: 'concierge@ateliernoir.com',
-    footerPhone: '+966 50 123 4567',
+    footerPhone: '+٩٦٦ ٥٠ ١٢٣ ٤٥٦٧',
     footerHoursTag: 'ساعات العمل',
     footerTueFri: 'الثلاثاء — الجمعة',
     footerTueFriTime: '٠٩:٠٠ — ٢٠:٠٠',

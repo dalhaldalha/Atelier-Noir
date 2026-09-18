@@ -4,7 +4,7 @@ import { useBooking } from '../../contexts/BookingContext';
 
 const Hero = () => {
   const { lang, dir, t } = useLanguage();
-  const { booking } = useBooking();
+  const { booking, selectService, selectBarber } = useBooking();
 
   return (
     <section className="hero-wrapper" dir={dir}>

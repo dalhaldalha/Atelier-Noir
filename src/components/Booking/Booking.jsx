@@ -43,8 +43,22 @@ const Booking = () => {
                 <span className="text-headline-sm text-on-surface">{t.bookingMonth}</span>
               </div>
               <div className="calendar-nav">
-                <button className="nav-btn material-symbols-outlined">{dir === 'rtl' ? 'chevron_right' : 'chevron_left'}</button>
-                <button className="nav-btn material-symbols-outlined">{dir === 'rtl' ? 'chevron_left' : 'chevron_right'}</button>
+                <button className="nav-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" fill="currentColor">
+                    {dir === 'rtl' 
+                      ? <path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"/> // arrow_forward (points right)
+                      : <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z"/> // arrow_back (points left)
+                    }
+                  </svg>
+                </button>
+                <button className="nav-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" fill="currentColor">
+                    {dir === 'rtl' 
+                      ? <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z"/> // arrow_back (points left)
+                      : <path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"/> // arrow_forward (points right)
+                    }
+                  </svg>
+                </button>
               </div>
             </div>
 
@@ -112,28 +126,28 @@ const Booking = () => {
             <div className="preferences-section">
               <div className="pref-tag text-label-caps text-outline uppercase">{t.bookingPreferencesTag}</div>
               <label className="pref-row text-body-md text-on-surface">
-                <span>{t.bookingPrefSilent}</span>
                 <input 
                   type="checkbox" 
                   checked={booking.preferences?.silent || false}
                   onChange={() => togglePreference('silent')}
                 />
+                <span>{t.bookingPrefSilent}</span>
               </label>
               <label className="pref-row text-body-md text-on-surface">
-                <span>{t.bookingPrefMalt}</span>
                 <input 
                   type="checkbox" 
                   checked={booking.preferences?.malt || false}
                   onChange={() => togglePreference('malt')}
                 />
+                <span>{t.bookingPrefMalt}</span>
               </label>
               <label className="pref-row text-body-md text-on-surface">
-                <span>{t.bookingPrefAlum}</span>
                 <input 
                   type="checkbox" 
                   checked={booking.preferences?.alum || false}
                   onChange={() => togglePreference('alum')}
                 />
+                <span>{t.bookingPrefAlum}</span>
               </label>
             </div>
 

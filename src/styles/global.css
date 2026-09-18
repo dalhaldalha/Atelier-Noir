@@ -89,7 +89,10 @@ input[type="checkbox"] {
 :root[dir="rtl"] .text-headline-lg-mobile,
 :root[dir="rtl"] .text-headline-md,
 :root[dir="rtl"] .text-headline-sm,
-:root[dir="rtl"] blockquote {
+:root[dir="rtl"] blockquote,
+:root[dir="rtl"] .hero-title,
+:root[dir="rtl"] .hero-title-main,
+:root[dir="rtl"] .hero-title-italic {
   font-family: 'Amiri', serif !important;
   letter-spacing: normal !important;
 }
